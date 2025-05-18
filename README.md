@@ -99,9 +99,7 @@ python ensemble.py
 >    According to Russell, the key problems of philosophy include the uncertainty of knowledge, the limitations of metaphysical reasoning, and the inability to provide definite answers to fundamental questions. Philosophy aims to diminish the risk of error, but cannot eliminate it entirely due to human fallibility. The value of philosophy lies in its ability to challenge common sense beliefs and lead to the exploration of complex problems.
 
 
-## Example Queries for Streamlit App
-
-DeepEval Metrics Integration
+# DeepEval Metrics Integration
 This project automatically evaluates every answer using DeepEval and displays:
 
 Answer Relevancy (0–1): How well the LLM response fits the question and context.
@@ -117,7 +115,7 @@ Copy
 Edit
 Relevance: 0.88
 Hallucination: 0.00
-DeepEval Usage (behind the scenes)
+# DeepEval Usage (behind the scenes)
 Each answer is scored with AnswerRelevancyMetric and HallucinationMetric.
 
 The relevant code is in streamlit_app.py:
@@ -136,8 +134,9 @@ for metric in test_result.metrics_data:
         st.sidebar.metric("Hallucination ↘", f"{metric.score:.2f}")
 Troubleshooting: If you see DeepEval errors, check that you have a working OpenAI key and that your requirements match those in requirements.txt.
 
-Example Queries for Streamlit App
-Example 1: Metabolic Rate
+## Example Queries for Streamlit App
+
+### Example 1: Metabolic Rate
 Question:
 If I am an 195 lb male, what should my calorie intake be to lose 1 lb a week based on what you know about my basal metabolic rate?
 
@@ -145,7 +144,7 @@ Sidebar Scores:
 Relevance: 0.88
 Hallucination: 0.00
 
-Example 2: Recipes
+### Example 2: Recipes
 Note: To use this example, copy the example/us_army_recipes.txt file into your data directory (not included by default).
 
 Question:
