@@ -30,7 +30,9 @@ def create_full_chain(retriever, openai_api_key=None, chat_memory=ChatMessageHis
 
     rag_chain = make_rag_chain(model, retriever, rag_prompt=prompt)
     chain = create_memory_chain(model, rag_chain, chat_memory)
-    return chain
+
+    # ✅ Return both the chain and the retriever for downstream use
+    return chain, retriever
 
 
 def ask_question(chain, query):
@@ -50,10 +52,10 @@ def main():
 
     docs = load_txt_files()
     ensemble_retriever = ensemble_retriever_from_docs(docs)
-    chain = create_full_chain(ensemble_retriever)
+    chain, _ = create_full_chain(ensemble_retriever)
 
     queries = [
-        "Generate a grocery list for my family meal plan for the next week(following 7 days). Prefer local, in-season ingredients."
+        "Generate a grocery list for my family meal plan for the next week (following 7 days). Prefer local, in-season ingredients.",
         "Create a list of estimated calorie counts and grams of carbohydrates for each meal."
     ]
 
