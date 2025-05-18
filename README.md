@@ -120,6 +120,7 @@ Each answer is scored with AnswerRelevancyMetric and HallucinationMetric.
 
 The relevant code is in streamlit_app.py:
 
+```
 python
 Copy
 Edit
@@ -132,6 +133,7 @@ for metric in test_result.metrics_data:
         st.sidebar.metric("Relevance ↗", f"{metric.score:.2f}")
     elif metric.name.lower() == "hallucination":
         st.sidebar.metric("Hallucination ↘", f"{metric.score:.2f}")
+```
 Troubleshooting: If you see DeepEval errors, check that you have a working OpenAI key and that your requirements match those in requirements.txt.
 
 ## Example Queries for Streamlit App
